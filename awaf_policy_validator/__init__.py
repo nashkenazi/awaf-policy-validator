@@ -15,7 +15,7 @@ from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from awaf_policy_validator.bigip import ASM
 
 __app_name__ = "awaf_policy_validator"
-__version__ = "0.1.0b"
+__version__ = "0.1.1b"
 __folder__ = path.abspath(path.dirname(__file__))
 
 CONFIG_TEMPLATE = {
@@ -26,6 +26,7 @@ CONFIG_TEMPLATE = {
     },
     "asm_policy_name": "",
     "virtual_server_url": "",
+    "blocking_regex": "<br>Your support ID is: (?P<id>\\d+)<br>",
     "threads": 25,
     "filters": {
         "include": {
@@ -93,6 +94,7 @@ class AWAFPolicyValidator(object):
     def test_vector(self, url, test, vector, expected_result):
         res = ""
         error = None
+        user_agent = "%s %s" % (__app_name__, __version__)
         try:
             if vector["applies_to"] == "request":
                 url_parsed = urlparse(url)
@@ -107,7 +109,10 @@ class AWAFPolicyValidator(object):
                 if url_parsed.scheme == "https":
                     s = ssl.wrap_socket(s)
                 s.connect((url_parsed.hostname, port))
-                s.sendall(vector["payload"].format(hostname=url_parsed.hostname).encode('utf-8'))
+                s.sendall(vector["payload"].format(
+                    hostname=url_parsed.hostname,
+                    user_agent=user_agent
+                ).encode('utf-8'))
                 res = s.recv(4096)
                 if res.endswith(b"\r\n\r\n"):
                     res += s.recv(4096)
@@ -119,7 +124,7 @@ class AWAFPolicyValidator(object):
                     "url": urljoin(url, "/%s/" % __app_name__),
                     "params": {},
                     "headers": {
-                        "User-Agent": "%s %s" % (__app_name__, __version__)
+                        "User-Agent": user_agent
                     }
                 }
                 if vector["applies_to"] == "parameter":
@@ -137,7 +142,7 @@ class AWAFPolicyValidator(object):
         except Exception as ex:
             error = ex
 
-        re_res = re.search(r"<br>Your support ID is: (?P<id>\d+)<br>".encode('utf-8'), res)
+        re_res = re.search(self.config['blocking_regex'].encode('utf-8'), res)
         result = {
             "test": test,
             "vector": vector,
@@ -157,7 +162,7 @@ class AWAFPolicyValidator(object):
         report = {
             "summary": {
                 "fail": 0,
-                "success": 0,
+                "pass": 0,
             },
             "details": defaultdict(dict)
         }
@@ -179,13 +184,13 @@ class AWAFPolicyValidator(object):
             report["details"][test_id]["results"][test_applies_to]["expected_result"] = res["expected_result"]
 
             if not res["result"]:
-                report["details"][test_id]["results"][test_applies_to]["success"] = False
+                report["details"][test_id]["results"][test_applies_to]["pass"] = False
                 report["summary"]["fail"] += 1
                 continue
 
             report["details"][test_id]["results"][test_applies_to]["support_id"] = res["result"]
-            report["details"][test_id]["results"][test_applies_to]["success"] = True
-            report["summary"]["success"] += 1
+            report["details"][test_id]["results"][test_applies_to]["pass"] = True
+            report["summary"]["pass"] += 1
             if not self.policy:
                 event = self.asm.events(res["result"], select=["requestPolicyReference"])
                 self.policy = self.asm.policy(path.basename(urlparse(event["requestPolicyReference"]["link"]).path))
@@ -288,6 +293,7 @@ class AWAFPolicyValidator(object):
                 path.basename(urlparse(item["signatureReference"]["link"]).path): {
                     "enabled": item.get("enabled", False),
                     "block": item.get("block", False),
+                    "exists": True,
                     "staging": signature_staging and item.get("performStaging", False)
                 } for item in
                 self.policy.get(
@@ -300,7 +306,8 @@ class AWAFPolicyValidator(object):
                 str(item["signatureId"]): signatures.get(item["id"], {
                     "enabled": False,
                     "block": False,
-                    "staging": False
+                    "staging": False,
+                    "exists": False
                 }) for item in
                 self.asm.get("signatures", filter="signatureType eq request", select=["id", "signatureId"])["items"]
             }
@@ -319,7 +326,7 @@ class AWAFPolicyValidator(object):
         for test_id, details in report_details.items():
             for applies_to, result in details["results"].items():
                 expected_result = result.get("expected_result")
-                if result["success"]:
+                if result["pass"]:
                     continue
 
                 typ = expected_result["type"]
@@ -333,6 +340,11 @@ class AWAFPolicyValidator(object):
                 if typ == "signature":
                     if expected_result["value"] not in signatures:
                         reason = "Attack Signatures are not up to date"
+                        result["reason"] = reason
+                        continue
+
+                    if not signatures[expected_result["value"]]["exists"]:
+                        reason = "Attack Signature is not in the ASM Policy"
                         result["reason"] = reason
                         continue
 
@@ -391,20 +403,8 @@ class AWAFPolicyValidator(object):
 
         config["asm_policy_name"] = prompt("ASM Policy Name", default=config["asm_policy_name"])
         config["virtual_server_url"] = prompt("Virtual Server URL", default=config["virtual_server_url"])
-        config["threads"] = int(prompt("Number OF Threads", default=config["threads"]))
-
-        config["filters"]["exclude"]["id"] = prompt(
-            "[Filters] Test IDs to exclude (Separated by ',')",
-            default=config["filters"]["exclude"]["id"]
-        )
-        config["filters"]["exclude"]["system"] = prompt(
-            "[Filters] Test Systems to exclude (Separated by ',')",
-            default=config["filters"]["exclude"]["system"]
-        )
-        config["filters"]["exclude"]["attack_type"] = prompt(
-            "[Filters] Test Attack Types to exclude (Separated by ',')",
-            default=config["filters"]["exclude"]["attack_type"]
-        )
+        config["blocking_regex"] = prompt("Blocking Regular Expression Pattern", default=config["blocking_regex"])
+        config["threads"] = int(prompt("Number OF Threads", default=config["threads"]) or 1)
 
         config["filters"]["include"]["id"] = prompt(
             "[Filters] Test IDs to include (Separated by ',')",
@@ -417,6 +417,19 @@ class AWAFPolicyValidator(object):
         config["filters"]["include"]["attack_type"] = prompt(
             "[Filters] Test Attack Types to include (Separated by ',')",
             default=config["filters"]["include"]["attack_type"]
+        )
+
+        config["filters"]["exclude"]["id"] = prompt(
+            "[Filters] Test IDs to exclude (Separated by ',')",
+            default=config["filters"]["exclude"]["id"]
+        )
+        config["filters"]["exclude"]["system"] = prompt(
+            "[Filters] Test Systems to exclude (Separated by ',')",
+            default=config["filters"]["exclude"]["system"]
+        )
+        config["filters"]["exclude"]["attack_type"] = prompt(
+            "[Filters] Test Attack Types to exclude (Separated by ',')",
+            default=config["filters"]["exclude"]["attack_type"]
         )
 
         with open(configuration_path, 'w') as cf:
@@ -438,10 +451,14 @@ def prompt(msg, default="", password=False):
         default_msg = ",".join(map(str, default))
         res = prompt_func("%s [%s]: " % (msg, default_msg)).strip()
         if res:
+            if res.lower() == 'null':
+                return []
             res = map(lambda s: s.strip(), res.split(','))
-        return res or default
+        return list(res) or default
 
     res = prompt_func("%s [%s]: " % (msg, default_msg)).strip()
+    if res.lower() == 'null':
+        return ""
     return res or default
 
 
@@ -465,6 +482,7 @@ def main(args=None):
     parser.add_argument("-r", "--report",
                         help="Report File Save Path.",
                         default="report.json")
+
     sys_args = vars(parser.parse_args(args=args))
 
     logging.basicConfig(level=logging.INFO,

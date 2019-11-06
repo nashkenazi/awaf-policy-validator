@@ -165,7 +165,7 @@
     ]
   },
   {
-    "id": "100000007",
+    "id": "100000006",
     "name": "Authentication Bypass SQL Injection",
     "attack_type": "SQL-Injection",
     "system": "General Database",
@@ -181,7 +181,7 @@
       },
       {
         "applies_to": "url",
-        "payload": "or 1=1 --",
+        "payload": "or\t1=1\t--",
         "expected_result": {
           "type": "signature",
           "value": "200002837"
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "id": "100000008",
+    "id": "100000007",
     "name": "MongoDB Injection - db.getCollectionNames()",
     "attack_type": "NoSQL Injection",
     "system": "MongoDB",
@@ -231,7 +231,7 @@
     ]
   },
   {
-    "id": "100000010",
+    "id": "100000008",
     "name": "Linux Command Execution - uname()",
     "attack_type": "Command Execution",
     "system": "Unix/Linux",
@@ -264,7 +264,7 @@
     ]
   },
   {
-    "id": "100000011",
+    "id": "100000009",
     "name": "Windows Command Exeuction - powershell",
     "attack_type": "Command Execution",
     "system": "Microsoft Windows",
@@ -272,7 +272,7 @@
     "vectors": [
       {
         "applies_to": "parameter",
-        "payload": "& powershell-WindowStyle Hidden -encode",
+        "payload": "%26%20powershell-WindowStyle%20Hidden%20-encode",
         "expected_result": {
           "type": "signature",
           "value": "200003573"
@@ -280,10 +280,10 @@
       },
       {
         "applies_to": "url",
-        "payload": "& powershell-WindowStyle Hidden -encode",
+        "payload": "%26%20powershell-WindowStyle%20Hidden%20-encode",
         "expected_result": {
           "type": "signature",
-          "value": "200001404"
+          "value": "200003575"
         }
       },
       {
@@ -291,13 +291,13 @@
         "payload": "& powershell-WindowStyle Hidden -encode",
         "expected_result": {
           "type": "signature",
-          "value": "200001406"
+          "value": "200003574"
         }
       }
     ]
   },
   {
-    "id": "100000012",
+    "id": "100000010",
     "name": "Path Traversal",
     "attack_type": "Path Traversal",
     "system": "All systems",
@@ -330,7 +330,7 @@
     ]
   },
   {
-    "id": "100000013",
+    "id": "100000011",
     "name": "Predictable Resource Location",
     "attack_type": "Predictable Resource Location",
     "system": "All systems",
@@ -347,9 +347,9 @@
     ]
   },
   {
-    "id": "100000014",
+    "id": "100000012",
     "name": "Null in request",
-    "attack_type": "Detection Evasion",
+    "attack_type": "HTTP Protocol Compliance",
     "system": "All systems",
     "CVE": "",
     "vectors": [
@@ -358,13 +358,13 @@
         "payload": "exploit.php\u0000.jpg",
         "expected_result": {
           "type": "violation",
-          "value": "Null in request"
+          "value": "HTTP protocol compliance failed"
         }
       }
     ]
   },
   {
-    "id": "100000015",
+    "id": "100000013",
     "name": "Alternative Datastream Access",
     "attack_type": "Detection Evasion",
     "system": "Microsoft Windows",
@@ -381,7 +381,7 @@
     ]
   },
   {
-    "id": "100000018",
+    "id": "100000014",
     "name": "Insecure Deserialization - node.js",
     "attack_type": "Insecure Deserialization",
     "system": "node.js",
@@ -414,7 +414,7 @@
     ]
   },
   {
-    "id": "100000019",
+    "id": "100000015",
     "name": "Insecure Deserialization - PHP",
     "attack_type": "Insecure Deserialization",
     "system": "PHP",
@@ -447,15 +447,15 @@
     ]
   },
   {
-    "id": "100000020",
-    "name": "Null in request",
+    "id": "100000016",
+    "name": "Directory traversals",
     "attack_type": "Detection Evasion",
     "system": "All systems",
     "CVE": "",
     "vectors": [
       {
         "applies_to": "request",
-        "payload": "GET /../../../ HTTP/1.1\r\nHost: {hostname}\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.9\r\n\r\n",
+        "payload": "GET /../../../ HTTP/1.1\r\nHost: {hostname}\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: {user_agent}\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.9\r\n\r\n",
         "expected_result": {
           "type": "evasion",
           "value": "Directory traversals"
