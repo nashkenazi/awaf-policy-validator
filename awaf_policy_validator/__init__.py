@@ -93,6 +93,7 @@ class AWAFPolicyValidator(object):
 
     def test_vector(self, url, test, vector, expected_result):
         res = ""
+        res_encoding = "utf-8"
         error = None
         user_agent = "%s %s" % (__app_name__, __version__)
         try:
@@ -109,10 +110,12 @@ class AWAFPolicyValidator(object):
                 if url_parsed.scheme == "https":
                     s = ssl.wrap_socket(s)
                 s.connect((url_parsed.hostname, port))
-                s.sendall(vector["payload"].format(
+                req = vector["payload"].format(
                     hostname=url_parsed.hostname,
-                    user_agent=user_agent
-                ).encode('utf-8'))
+                    user_agent=user_agent,
+                    appname=__app_name__
+                ).encode('utf-8')
+                s.sendall(req)
                 res = s.recv(4096)
                 if res.endswith(b"\r\n\r\n"):
                     res += s.recv(4096)
@@ -141,14 +144,15 @@ class AWAFPolicyValidator(object):
                 res = requests.request(**request_args).content
         except Exception as ex:
             error = ex
+            print(error)
 
-        re_res = re.search(self.config['blocking_regex'].encode('utf-8'), res)
+        re_res = re.search(self.config['blocking_regex'].encode(res_encoding), res)
         result = {
             "test": test,
             "vector": vector,
             "error": error,
             "expected_result": expected_result,
-            "result": re_res.group('id').decode('utf-8') if re_res else None
+            "result": re_res.group('id').decode(res_encoding) if re_res else None
         }
 
         self.logger.info("Test {id}/{applies_to} {result}".format(
