@@ -312,8 +312,8 @@
         }
       },
       {
-        "applies_to": "url",
-        "payload": "../../etc/passwd",
+        "applies_to": "request",
+        "payload": "GET /../../etc/passwd HTTP/1.1\r\nHost: {hostname}\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: {user_agent}\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.9\r\n\r\n",
         "expected_result": {
           "type": "evasion",
           "value": "Directory traversals"
@@ -448,23 +448,6 @@
   },
   {
     "id": "100000016",
-    "name": "Directory traversals",
-    "attack_type": "Detection Evasion",
-    "system": "All systems",
-    "CVE": "",
-    "vectors": [
-      {
-        "applies_to": "request",
-        "payload": "GET /../../../ HTTP/1.1\r\nHost: {hostname}\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: {user_agent}\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.9\r\n\r\n",
-        "expected_result": {
-          "type": "evasion",
-          "value": "Directory traversals"
-        }
-      }
-    ]
-  },
-  {
-    "id": "100000017",
     "name": "Illegal Method TRACE",
     "attack_type": "Information Leakage",
     "system": "All systems",
@@ -481,7 +464,7 @@
     ]
   },
   {
-    "id": "100000018",
+    "id": "100000017",
     "name": "Malformed JSON",
     "attack_type": "JSON Parser Attack",
     "system": "All systems",
@@ -498,7 +481,7 @@
     ]
   },
   {
-    "id": "100000019",
+    "id": "100000018",
     "name": "Malformed XML",
     "attack_type": "XML Parser Attack",
     "system": "All systems",
@@ -510,6 +493,23 @@
         "expected_result": {
           "type": "violation",
           "value": "Malformed XML data"
+        }
+      }
+    ]
+  },
+  {
+    "id": "100000019",
+    "name": "Cookie not RFC-compliant",
+    "attack_type": "HTTP Parser Attack",
+    "system": "All systems",
+    "CVE": "",
+    "vectors": [
+      {
+        "applies_to": "request",
+        "payload": "GET / HTTP/1.1\r\nHost: {hostname}\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: {user_agent}\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.9\r\nCookie: =F5\r\n\r\n",
+        "expected_result": {
+          "type": "violation",
+          "value": "Cookie not RFC-compliant"
         }
       }
     ]
@@ -533,23 +533,6 @@
   },
   {
     "id": "100000021",
-    "name": "Cookie not RFC-compliant",
-    "attack_type": "HTTP Parser Attack",
-    "system": "All systems",
-    "CVE": "",
-    "vectors": [
-      {
-        "applies_to": "request",
-        "payload": "GET / HTTP/1.1\r\nHost: {hostname}\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: {user_agent}\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\nAccept-Encoding: gzip, deflate\r\nAccept-Language: en-US,en;q=0.9\r\nCookie: =F5\r\n\r\n",
-        "expected_result": {
-          "type": "violation",
-          "value": "Cookie not RFC-compliant"
-        }
-      }
-    ]
-  },
-  {
-    "id": "100000022",
     "name": "Wrong HTTP Protocol Version",
     "attack_type": "HTTP Parser Attack",
     "system": "All systems",

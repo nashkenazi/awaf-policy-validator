@@ -237,18 +237,6 @@ class AWAFPolicyValidator(object):
                     reasons[typ][applies_to] = "ASM Policy is not in blocking mode"
             return reasons
 
-        # Check URL * WildCard
-        url_wildcard = self.policy.get(
-            "urls",
-            filter="name eq '*'",
-            select=["attackSignaturesCheck", "signatureOverrides", "performStaging", "type", "name"]
-        )["items"][0]
-        if url_wildcard["performStaging"]:
-            for typ in reasons:
-                reasons[typ]["url"] = "URL * is in staging"
-        elif not url_wildcard["attackSignaturesCheck"]:
-            reasons["signature"]["url"] = "URL * Does not check signatures"
-
         # Check Header * WildCard
         header_wildcard = self.policy.get(
             "headers",
@@ -378,6 +366,19 @@ class AWAFPolicyValidator(object):
                         reason = "Violation disabled"
                         result["reason"] = reason
                         continue
+
+                # Check URL * WildCard
+                url_wildcard = self.policy.get(
+                    "urls",
+                    filter="name eq '*'",
+                    select=["attackSignaturesCheck", "signatureOverrides", "performStaging", "type", "name"]
+                )["items"][0]
+                if url_wildcard["performStaging"]:
+                    reason = "URL * is in staging"
+                    result["reason"] = reason
+                elif not url_wildcard["attackSignaturesCheck"]:
+                    reason = "URL * Does not check signatures"
+                    result["reason"] = reason
 
                 if not result["reason"]:
                     reason = "Unknown fail reason"
