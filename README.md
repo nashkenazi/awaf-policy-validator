@@ -1,5 +1,5 @@
 # f5-security-tester
-F5 tool that validate the WAF provide basic security level.\
+F5 tool that validate the WAF provide basic security level. \
 
 # Overview
 
@@ -8,9 +8,9 @@ That will ensure their applications are protected and safe with F5 WAF to the ba
 
 # How it Works
 
-The tool test the protection level by sending various attacks samples, that validate the application is not vulnerable to generic attack\ types (system independent, general database and javascript), and provide easy and fast feedback loop about the testing results with\ possible reasons of the failed attacks.\
+The tool test the protection level by sending various attacks samples, that validate the application is not vulnerable to generic attack\ types (system independent, general database and javascript), and provide easy and fast feedback loop about the testing results with\ possible reasons of the failed attacks.
 
-On top of the generic attack types, the tool support testing specific server technologies based on the application components:\
+On top of the generic attack types, the tool support testing specific server technologies based on the application components:
 
 - Node.js
 - PHP
@@ -26,11 +26,11 @@ Python 2.7+\
 Python package control (pip):\
 Ubuntu/Kali, ```sudo apt-get install -y python-pip```\
 Fedora, ```sudo dnf install -y python-pip```\
-Install the tool. ```pip install awaf-policy-validator```\  
+Install the tool. ```pip install awaf-policy-validator```\
 
 # How to Use
 
-You have to create configuration file at the first time that contain initial information about the testing environment which should\ include information the application systems :  ```awaf-policy-validator --init```\  
+You have to create configuration file at the first time that contain initial information about the testing environment which should \ include information the application systems :  ```awaf-policy-validator --init```\  
 
 The testing results can be found on the same path under "report.json" file.\
 The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
