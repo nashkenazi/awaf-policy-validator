@@ -3,12 +3,12 @@ Advanced Web Application Firewall Policy Validation Tool
 
 # Overview
 
-F5 research team has created a tool to provide customers an easy way to integrate security testing into their SDLC,
-That will ensure their applications are protected with F5 WAF to the basic security level before releasing to production.
+F5 research team has created a tool that provide easy and fast way to integrate their security testing into their SDLC,
+That will ensure their applications are protected and safe with F5 WAF to the basic security level, before releasing to production.
 
 # How it Works
 
-The tool test the protection level by sending various attacks samples that validate the application is not vulnerable to system independent, general database and javascript attacks, along with specific application server technologies that web applications contain, and provide easy and fast feedback loop about the testing results with possible reasons of the failed attacks .
+The tool test the protection level by sending various attacks samples that validate the application is not vulnerable to generic system independent, general database and javascript attack types, along with specific application server technologies that web application contain, and provide easy and fast feedback loop about the testing results with possible reasons of the failed attacks .
 
 The tool support testing attack types samples to ensure the of following attack types:
 
@@ -35,8 +35,11 @@ On top of the generic attack types, the tool support that following specific tes
 
 ## Prerequisites
 
-Python 2.7+.
-A C compiler, Python headers, etc. (are needed to compile several dependencies):
+Python 2.7+
+Python package control (pip):
 On Ubuntu / Kali, ```sudo apt-get install -y python-pip```
 On Fedora, ```sudo dnf install -y python-pip```
+
 Install the tool. ```pip install awaf-policy-validator```
+
+#How to Use
