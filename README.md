@@ -37,9 +37,8 @@ On top of the generic attack types, the tool support that following specific tes
 
 Python 2.7+
 Python package control (pip):
-On Ubuntu / Kali, ```sudo apt-get install -y python-pip```
-On Fedora, ```sudo dnf install -y python-pip```
+Ubuntu/Kali, ```sudo apt-get install -y python-pip```.
+Fedora, ```sudo dnf install -y python-pip```.
+Install the tool. ```pip install awaf-policy-validator```.
 
-Install the tool. ```pip install awaf-policy-validator```
-
-#How to Use
+# How to Use
