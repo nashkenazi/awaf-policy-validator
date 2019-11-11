@@ -24,9 +24,9 @@ On top of the generic attack types, the tool support testing specific server tec
 
 Python 2.7+\
 Python package control (pip):\
-Ubuntu/Kali, ```sudo apt-get install -y python-pip```\
-Fedora, ```sudo dnf install -y python-pip```\
-Install the tool. ```pip install awaf-policy-validator```\
+Ubuntu/Kali, ```sudo apt-get install -y python-pip```
+Fedora, ```sudo dnf install -y python-pip```
+Install the tool. ```pip install awaf-policy-validator```
 
 # How to Use
 
