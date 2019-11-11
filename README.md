@@ -4,10 +4,13 @@ Advanced Web Application Firewall Policy Validation Tool
 # Overview
 
 F5 research team has created a tool to provide customers an easy way to integrate security testing into their SDLC,
-That ensuring their applications are protected with the basic security level before releasing to production.
-The tool provide testing suite that cover basic attack types along with application server technologies that web applications must have,  and provide easy feedback loop about the possible reasons if the policy is not blocked the attack.
+That will ensure their applications are protected with F5 WAF to the basic security level before releasing to production.
 
-The tool support testing samples of following attack types:
+# How it Works
+
+The tool test the protection level by sending various attacks samples that validate the application is not vulnerable to system independent, general database and javascript attacks, along with specific application server technologies that web applications contain, and provide easy and fast feedback loop about the testing results with possible reasons of the failed attacks .
+
+The tool support testing attack types samples to ensure the of following attack types:
 
 - SQL-Injection
 - NoSQL Injection
