@@ -1,5 +1,5 @@
 # f5-security-tester
-F5 tool that validate the WAF provide basic security level\
+F5 tool that validate the WAF provide basic security level.\
 
 # Overview
 
