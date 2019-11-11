@@ -45,9 +45,8 @@ optional arguments:
   -v, --version         show program's version number and exit  
   -i, --init            Initialize Configuration. (default: False)  
   -c CONFIG, --config CONFIG  
-                        Configuration File Path. (default:  
-                        /usr/local/lib/python2.7/dist-packages/awaf_policy_validator/config/config.json)  
-  -t TESTS, --tests TESTS  
+                        Configuration File Path. (default: /usr/local/lib/python2.7/dist-packages/awaf_policy_validator/config/config.json)  
+  -t TESTS, --tests TESTS   
                         Tests File Path. (default: /usr/local/lib/python2.7/dist-packages/awaf_policy_validator/config/tests.json)  
   -r REPORT, --report REPORT  
                         Report File Save Path. (default: report.json)  
