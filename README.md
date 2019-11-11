@@ -23,33 +23,31 @@ On top of the generic attack types, the tool support testing specific server tec
 ## Prerequisites
 
 Python 2.7+
-Python package control (pip):
-Ubuntu/Kali, ```sudo apt-get install -y python-pip```.
-Fedora, ```sudo dnf install -y python-pip```.
-Install the tool. ```pip install awaf-policy-validator```.
+Python package control (pip):  
+Ubuntu/Kali, ```sudo apt-get install -y python-pip```  
+Fedora, ```sudo dnf install -y python-pip```  
+Install the tool. ```pip install awaf-policy-validator```  
 
 # How to Use
 
-You have to create configuration file at the first time that contain initial information about the testing environment which should include information the application systems :  ```awaf-policy-validator --init```
+You have to create configuration file at the first time that contain initial information about the testing environment which should include information the application systems :  ```awaf-policy-validator --init```  
 
-The testing results can be found on the same path under "report.json" file.
-The configuration and testing files can be edited based on the testing results to describe exactly the application environments.
+The testing results can be found on the same path under "report.json" file.  
 
-More help information can be found by using the command:  ```awaf-policy-validator --help```
+The configuration and testing files can be edited based on the testing results to describe exactly the application environments.  
 
-usage: awaf-policy-validator [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]
+More help information can be found by using the command:  ```awaf-policy-validator --help```  
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -v, --version         show program's version number and exit
-  -i, --init            Initialize Configuration. (default: False)
-  -c CONFIG, --config CONFIG
-                        Configuration File Path. (default:
-                        /usr/local/lib/python2.7/dist-
-                        packages/awaf_policy_validator/config/config.json)
-  -t TESTS, --tests TESTS
-                        Tests File Path. (default: /usr/local/lib/python2.7
-                        /dist-
-                        packages/awaf_policy_validator/config/tests.json)
-  -r REPORT, --report REPORT
-                        Report File Save Path. (default: report.json)
+usage: awaf-policy-validator [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]  
+
+optional arguments:  
+  -h, --help            show this help message and exit  
+  -v, --version         show program's version number and exit  
+  -i, --init            Initialize Configuration. (default: False)  
+  -c CONFIG, --config CONFIG  
+                        Configuration File Path. (default:  
+                        /usr/local/lib/python2.7/dist-packages/awaf_policy_validator/config/config.json)  
+  -t TESTS, --tests TESTS  
+                        Tests File Path. (default: /usr/local/lib/python2.7/dist-packages/awaf_policy_validator/config/tests.json)  
+  -r REPORT, --report REPORT  
+                        Report File Save Path. (default: report.json)  
