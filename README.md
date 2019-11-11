@@ -1,5 +1,5 @@
-# f5-tester
-Advanced Web Application Firewall Policy Validation Tool
+# f5-security-tester
+F5 tool that validate the WAF provide basic security level
 
 # Overview
 
