@@ -1,4 +1,4 @@
-# f5-security-tester
+# f5-waf-tester
 F5 testing tool that ensure basic security level.
 
 # Overview
