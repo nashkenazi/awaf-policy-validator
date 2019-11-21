@@ -30,12 +30,12 @@ Install the tool. ```pip install awaf-policy-validator```
 
 # How to Use
 
-You have to create configuration file at the first time that contain initial information about the testing environment which should \ include information the application systems :  ```awaf-policy-validator --init```   
+You have to create configuration file at the first time that contain initial information about the testing environment which should \ include information the application systems :  ```waf-tester --init```   
 
 The testing results can be found on the same path under "report.json" file.\
 The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
 
-More help information can be found by using the command:  ```awaf-policy-validator --help```  
+More help information can be found by using the command:  ```waf-tester --help```  
 
 usage: awaf-policy-validator [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]\
 
