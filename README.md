@@ -8,7 +8,7 @@ That will ensure their applications are protected and safe with F5 WAF to the ba
 
 # How it Works
 
-The tool test the protection level by sending various attacks samples, that validate the application is not vulnerable to generic attack types (system independent, general database and javascript), and provide easy and fast feedback loop about the testing results with possible reasons of the failed attacks.
+The tool will test the protection level by sending various attacks samples, that validate the application is not vulnerable to generic attack types (system independent, general database and javascript), and provide easy and fast feedback loop about the testing results with possible reasons of the failed attacks.
 
 On top of the generic attack types, the tool support testing specific server technologies based on the application components:
 
