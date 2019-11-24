@@ -39,9 +39,31 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 
 2. After the first init, config file is created and can be maintanted based on the test results.
 
-- You edit the config file ("config.json") that just created in the same folder tool Adding server technologies based on the application enviorment:
+usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]\
 
-e.g: Adding server technologies:
+optional arguments:\
+  -h, --help            show this help message and exit\
+  -v, --version         show program's version number and exit\
+  -i, --init            Initialize Configuration. (default: False)\
+  -c CONFIG, --config CONFIG\
+                        Configuration File Path. (default: config.json)
+  -t TESTS, --tests TESTS\
+                        Tests File Path. (default: tests.json)\
+  -r REPORT, --report REPORT\
+                        Report File Save Path. (default: report.json)
+                        
+
+More help information can be found by using the command:  ```f5-waf-tester --help``` 
+
+3. The testing results can be found on the same path under "report.json" file.\
+
+The testing results can be found on the same path under "report.json" file.\
+The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
+
+The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
+
+e/g Edit the config file ("config.json") to exclude or include tests based on the tests results:
+Adding server technologies based on the application enviorment:
 
 ```}
       "include": {
@@ -57,22 +79,6 @@ e.g: Adding server technologies:
 }
 ```
 
-config file 
 
-The testing results can be found on the same path under "report.json" file.\
-The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
+ 
 
-More help information can be found by using the command:  ```f5-waf-tester --help```  
-
-usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]\
-
-optional arguments:\
-  -h, --help            show this help message and exit\
-  -v, --version         show program's version number and exit\
-  -i, --init            Initialize Configuration. (default: False)\
-  -c CONFIG, --config CONFIG\
-                        Configuration File Path. (default: config.json)
-  -t TESTS, --tests TESTS\
-                        Tests File Path. (default: tests.json)\
-  -r REPORT, --report REPORT\
-                        Report File Save Path. (default: report.json)
