@@ -53,7 +53,8 @@ e.g:
         "Node.js", 
         "MongoDb"
       ]
-}```
+}
+```
 
 config file 
 
