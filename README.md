@@ -8,9 +8,9 @@ That will ensure their applications are protected and safe with F5 WAF to the ba
 
 # How it Works
 
-The tool will test the protection level by sending various attacks samples, that validate the application is not vulnerable to generic attack types (system independent, general database and javascript), and provide easy and fast feedback loop about the testing results with possible reasons of the failed attacks.
+The tool will test the protection level by sending various attacks samples, that validate the application is not vulnerable to generic attack types (system independent, general database and javascript), and provide easy and fast feedback loop about the testing results with possible reasons of the failed attacks that related to F5 WAF.
 
-On top of the generic attack types, the tool support testing specific server technologies based on the application components:
+On top of the generic attack types tests, the tool support testing specific server technologies based on the application components:
 
 - Node.js
 - PHP
@@ -42,7 +42,7 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 - adding server technologies based on the application enviorment:
 e.g:
 
-}
+```}
       "include": {
       "attack_type": [
       ], 
@@ -53,9 +53,9 @@ e.g:
         "Node.js", 
         "MongoDb"
       ]
-}
+}```
 
-- Exclude tests
+config file 
 
 The testing results can be found on the same path under "report.json" file.\
 The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
