@@ -56,11 +56,9 @@ optional arguments:\
 More help information can be found by using the command:  ```f5-waf-tester --help``` 
 
 3. The testing results can be found on the same path under "report.json" file.\
-
-The testing results can be found on the same path under "report.json" file.\
 The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
 
-The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
+4. The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
 
 e/g Edit the config file ("config.json") to exclude or include tests based on the tests results:
 Adding server technologies based on the application enviorment:
