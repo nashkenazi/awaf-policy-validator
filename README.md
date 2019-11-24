@@ -39,8 +39,9 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 
 2. After the first init, config file is created and can be maintanted based on the test results.
 
-- adding server technologies based on the application enviorment:
-e.g:
+- You edit the config file ("config.json") that just created in the same folder tool Adding server technologies based on the application enviorment:
+
+e.g: Adding server technologies:
 
 ```}
       "include": {
@@ -70,8 +71,8 @@ optional arguments:\
   -v, --version         show program's version number and exit\
   -i, --init            Initialize Configuration. (default: False)\
   -c CONFIG, --config CONFIG\
-                        Configuration File Path. (default: /usr/local/lib/python2.7/dist-packages/awaf_policy_validator/config/config.json)\
+                        Configuration File Path. (default: config.json)
   -t TESTS, --tests TESTS\
-                        Tests File Path. (default: /usr/local/lib/python2.7/dist-packages/awaf_policy_validator/config/tests.json)\
+                        Tests File Path. (default: tests.json)\
   -r REPORT, --report REPORT\
                         Report File Save Path. (default: report.json)
