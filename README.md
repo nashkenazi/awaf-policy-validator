@@ -17,6 +17,10 @@ On top of the generic attack types, the tool support testing specific server tec
 - MongoDb
 - Micorsoft
 - Unix/Linux
+- XML
+- Java Servlets/JSP
+- ASP.NET
+- Python
 
 # Installation
 
@@ -25,19 +29,30 @@ On top of the generic attack types, the tool support testing specific server tec
 Python 2.7+\
 Python package control (pip):\
 Ubuntu/Kali, ```sudo apt-get install -y python-pip```  
-Fedora, ```sudo dnf install -y python-pip```  
-Install the tool. ```pip install awaf-policy-validator```  
+Fedora, ```sudo dnf install -y python-pip``` 
+
+Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-tester.git```  
 
 # How to Use
 
-You have to create configuration file at the first time that contain initial information about the testing environment which should \ include information the application systems :  ```waf-tester --init```   
+1. First you have to create configuration file at the first time that contain initial information about the testing environment which should \ include information the application systems :  ```f5-waf-tester --init``` 
+
+2. Add the server technologies that listed above that relevant to your application in the include system, seperated by comma
+
+e.g:
+
+"include": {
+      "attack_type": [],
+      "id": [],
+      "system": [Unix/Linux,Node.js,MongoDb]
+}
 
 The testing results can be found on the same path under "report.json" file.\
 The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
 
-More help information can be found by using the command:  ```waf-tester --help```  
+More help information can be found by using the command:  ```f5-waf-tester --help```  
 
-usage: awaf-policy-validator [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]\
+usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]\
 
 optional arguments:\
   -h, --help            show this help message and exit\
