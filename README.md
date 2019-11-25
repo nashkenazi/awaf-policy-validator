@@ -51,7 +51,7 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 
 # How to Use
 
-1. First you have to create configuration file at the first time that contain initial information about the testing environment which should \ include information the application server technologies :  ```f5-waf-tester --init``` 
+## 1. First you have to create configuration file at the first time that contain initial information about the testing environment which should \ include information the application server technologies :  ```f5-waf-tester --init``` 
 
 2. After the first init, config file is created and can be maintanted based on the test results.
 
