@@ -111,7 +111,7 @@ Test results summary provide the number of failed and passed tests:
   As well the possible reasons why the WAF did not block the request:
   
   
-  '''
+  ```
   ASM Policy is not in blocking mode
   Attack Signature is not in the ASM Policy
   Attack Signatures are not up to date
@@ -124,7 +124,7 @@ Test results summary provide the number of failed and passed tests:
   Evasion disabled
   Evasion technique is not in blocking mode
   Violation disabled
- '''
+ ```
   
 
 The testing results can be found on the same path under "report.json" file.\
