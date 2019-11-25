@@ -51,12 +51,12 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 
 # How to Use
 
-## 1. Create configuration file for the first time -  ```f5-waf-tester --init``` 
+### 1. Create configuration file for the first time -  ```f5-waf-tester --init``` 
 
 that will contain initial information about the testing environment which should \ include information the application server technologies.
 
 e.g:
-
+```
 [BIG-IP] Host [1.1.1.1]: The BIG-IP Mgmt IP address to be tested
 [BIG-IP] Username [username]: The BIG-IP Mgmt username to be tested
 [BIG-IP] Password [********]: The BIG-IP Mgmt password to be tested
@@ -70,12 +70,12 @@ Number OF Threads [25]: The number of threads to open in parallel
 [Filters] Test IDs to exclude (Separated by ',') [,]:  You can choose a spesifc test ID`s not to be tested (on top of the include list)
 [Filters] Test Systems to exclude (Separated by ',') []: You can choose a spesifc system names not to be tested (on top of the include list)
 [Filters] Test Attack Types to exclude (Separated by ',') [],]: You can choose a spesifc attack type names not to be tested (on top of the include list)
-
+```
 
 After the first init, config file (config.json) is created on the same folder and can be manipulated.
 
 More information can observed by clicking ```f5-waf-tester --help```
-
+```
 usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]
 
 optional arguments:
@@ -92,15 +92,18 @@ optional arguments:
                         packages/awaf_policy_validator/config/tests.json)
   -r REPORT, --report REPORT
                         Report File Save Path. (default: report.json)
+  ```
 
-## 2. Run the testing tool and observe the results 
+### 2. Run the testing tool and observe the results 
 
 Test results summary provide the number of failed and passed tests:
 
+```
  "summary": {
     "fail": 4,
     "pass": 45
   }
+  ```
   
   fail - The attack was not block by the WAF
   pass - The attack was bloacked by the WAF
@@ -112,7 +115,7 @@ If needed, edit the config file ("config.json") to exclude or include tests base
 e.g: Include only the server technologies that related to the application strcutre:
 
 e.g:
-
+```
     "include": {
       "attack_type": [],
       "id": [],
@@ -122,5 +125,7 @@ e.g:
         "MongoDb",
         "Java Servlets/JSP"
       ]
+      
+ ```
 
-## 4. Adapt the WAF policy based on the possilbe reasons results and rerun
+### 3. Adapt the WAF policy based on the possilbe reasons results and rerun
