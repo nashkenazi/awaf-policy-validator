@@ -108,7 +108,7 @@ Test results summary provide the number of failed and passed tests:
   fail - The attack was not block by the WAF
   pass - The attack was bloacked by the WAF
   
-  As well the possible reasons why the WAF did not block the request:
+  For each test ID, the tool will provde the common possible reasons why the WAF did not block the request:
   
   
   ```
