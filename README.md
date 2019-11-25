@@ -8,18 +8,19 @@ That will ensure WAF prodive basic security level, before releasing to productio
 
 The Tool cover testing varoius attack types which include:
 
-        "Cross Site Scripting (XSS)",
-        "SQL-Injection",
-        "NoSQL Injection",
-        "Command Execution",
-        "Path Traversal",
-        "Predictable Resource Location",
-        "Detection Evasion",
-        "Insecure Deserialization",
-        "HTTP Parser Attack",
-        "XML External Entities (XXE)",
-        "Server-Side Request Forgery",
-        "Server Side Code Injection",
+        "Cross Site Scripting (XSS)"    
+        "SQL-Injection"    
+        "NoSQL Injection"    
+        "Command Execution"    
+        "Path Traversal"    
+        "Predictable Resource Location"    
+        "Detection Evasion"    
+        "Insecure Deserialization"    
+        "HTTP Parser Attack"    
+        "XML External Entities (XXE)"    
+        "Server-Side Request Forgery"    
+        "Server Side Code Injection"    
+
 
 # How it Works
 
