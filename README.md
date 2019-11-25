@@ -1,12 +1,12 @@
 # f5-waf-tester
-F5 testing tool that ensure basic security level.
+F5 tester tool that ensure basic security level.
 
 # Overview
 
 F5 research team has created a tool that provide an easy and fast way to integrate security testing into the SDLC,\
 That will ensure WAF prodive basic security level, before releasing to production.
 
-The Tool cover testing varoius attack types which include:
+The tester tool covers testing a varoius basic attack types which include:
 
         "Cross Site Scripting (XSS)"    
         "SQL-Injection"    
