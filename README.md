@@ -148,4 +148,4 @@ e.g:
  ```
 
 ### 3. Adapt the WAF policy based on the possilbe reasons results and run the tester tool again
-Once the teter tool results are clear from any failed tests, it means that you WAF is ready to be deployed and provide the basic protection level against web attacks.
+Once the results are clear from any failed tests, it means that you WAF is ready to be deployed and provide the basic protection level against web attacks.
