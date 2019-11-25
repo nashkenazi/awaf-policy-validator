@@ -3,8 +3,23 @@ F5 testing tool that ensure basic security level.
 
 # Overview
 
-F5 research team has created a tool that provide easy and fast way to integrate their security testing into their SDLC,\
-That will ensure their applications are protected and safe  to the basic security level, before releasing to production.
+F5 research team has created a tool that provide an easy and fast way to integrate security testing into the SDLC,\
+That will ensure WAF prodive basic security level, before releasing to production.
+
+The Tool cover testing varoius attack types which include:
+
+        "Cross Site Scripting (XSS)",
+        "SQL-Injection",
+        "NoSQL Injection",
+        "Command Execution",
+        "Path Traversal",
+        "Predictable Resource Location",
+        "Detection Evasion",
+        "Insecure Deserialization",
+        "HTTP Parser Attack",
+        "XML External Entities (XXE)",
+        "Server-Side Request Forgery",
+        "Server Side Code Injection",
 
 # How it Works
 
