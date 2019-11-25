@@ -61,20 +61,20 @@ e.g:
 [BIG-IP] Username [username]: The BIG-IP Mgmt username to be tested
 [BIG-IP] Password [********]: The BIG-IP Mgmt password to be tested
 ASM Policy Name [policy_name]: The ASM policy name to be tested
-Virtual Server URL [https://2.2.2.2]: The protocol and virtual address to be tested
+Virtual Server URL [https://2.2.2.2]: <The protocol and virtual address that will be tested>
 Blocking Regular Expression Pattern [<br>Your support ID is: (?P<id>\d+)<br>]: The blocking response page string to expect from ASM  
 Number OF Threads [25]: The number of threads to open in parallel
-[Filters] Test IDs to include (Separated by ',') []: You can choose a spesifc test ID`s to be tested 
-[Filters] Test Systems to include (Separated by ',') [Unix/Linux,Node.js,MongoDb,Java Servlets/JSP]: You can choose a spesifc systems names to be tested 
-[Filters] Test Attack Types to include (Separated by ',') []: You can choose a spesifc attack types names to be tested 
-[Filters] Test IDs to exclude (Separated by ',') [,]:  You can choose a spesifc test ID`s not to be tested (on top of the include list)
-[Filters] Test Systems to exclude (Separated by ',') []: You can choose a spesifc system names not to be tested (on top of the include list)
-[Filters] Test Attack Types to exclude (Separated by ',') [],]: You can choose a spesifc attack type names not to be tested (on top of the include list)
+[Filters] Test IDs to include (Separated by ',') []: You can choose a spesifc test ID`s that will be tested 
+[Filters] Test Systems to include (Separated by ',') [Unix/Linux,Node.js,MongoDb,Java Servlets/JSP]: You can choose a spesifc systems names that will be tested 
+[Filters] Test Attack Types to include (Separated by ',') []: You can choose a spesifc attack types names that will be tested
+[Filters] Test IDs to exclude (Separated by ',') [,]:  You can choose a spesifc test ID`s not that will be tested (on top of the include list)
+[Filters] Test Systems to exclude (Separated by ',') []: You can choose a spesifc system names not that will be tested (on top of the include list)
+[Filters] Test Attack Types to exclude (Separated by ',') [],]: You can choose a spesifc attack type names not that will be tested (on top of the include list)
 ```
 
 After the first init, config file (config.json) is created on the same folder and can be manipulated.
 
-More information can observed by clicking ```f5-waf-tester --help```
+More information can be observed by clicking ```f5-waf-tester --help```
 ```
 usage: f5-waf-tester [-h] [-v] [-i] [-c CONFIG] [-t TESTS] [-r REPORT]
 
