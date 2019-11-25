@@ -94,9 +94,9 @@ optional arguments:
                         Report File Save Path. (default: report.json)
   ```
 
-### 2. Run the tester tool and observe the results 
+### 2. Run the tester tool and observe the results - ```f5-waf-tester```
 
-Test results summary provide the number of failed and passed tests:
+Test results summary provide total number of passed/failed tests:
 
 ```
  "summary": {
@@ -108,9 +108,10 @@ Test results summary provide the number of failed and passed tests:
   fail - The attack was not block by the WAF
   pass - The attack was bloacked by the WAF
   
-  For each test ID, the tool will provde the common possible reasons why the WAF did not block the request:
+  For each passed test ID, the tester tool provides support ID for any test that was blocked by the WAF - "support_id"
   
-  
+  For each failed test ID, the tester tool provdes the common possible reasons why the WAF did not block the request:
+    
   ```
   ASM Policy is not in blocking mode
   Attack Signature is not in the ASM Policy
@@ -147,4 +148,5 @@ e.g:
       
  ```
 
-### 3. Adapt the WAF policy based on the possilbe reasons results and rerun the tester tool
+### 3. Adapt the WAF policy based on the possilbe reasons results and run the tester tool again
+Once the teter tool results are clear from any failed tests, it means that you WAF is ready to be deployed and provide the basic protection level against web attacks.
