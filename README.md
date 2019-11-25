@@ -94,7 +94,7 @@ optional arguments:
                         Report File Save Path. (default: report.json)
   ```
 
-### 2. Run the testing tool and observe the results 
+### 2. Run the tester tool and observe the results 
 
 Test results summary provide the number of failed and passed tests:
 
@@ -104,9 +104,28 @@ Test results summary provide the number of failed and passed tests:
     "pass": 45
   }
   ```
-  
+    
   fail - The attack was not block by the WAF
   pass - The attack was bloacked by the WAF
+  
+  As well the possible reasons why the WAF did not block the request:
+  
+  
+  ""
+  ASM Policy is not in blocking mode
+  Attack Signature is not in the ASM Policy
+  Attack Signatures are not up to date
+  Attack Signature disabled
+  Attack Signature is in staging
+  Parameter * is in staging
+  URL * is in staging
+  URL * Does not check signatures
+  Header * Does not check signatures
+  Evasion disabled
+  Evasion technique is not in blocking mode
+  Violation disabled
+ ""
+  
 
 The testing results can be found on the same path under "report.json" file.\
 The configuration and testing files can be edited based on the testing results to describe exactly the application environments.\
@@ -128,4 +147,4 @@ e.g:
       
  ```
 
-### 3. Adapt the WAF policy based on the possilbe reasons results and rerun
+### 3. Adapt the WAF policy based on the possilbe reasons results and rerun the tester tool
