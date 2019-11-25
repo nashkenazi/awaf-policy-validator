@@ -4,7 +4,7 @@ F5 testing tool that ensure basic security level.
 # Overview
 
 F5 research team has created a tool that provide easy and fast way to integrate their security testing into their SDLC,\
-That will ensure their applications are protected and safe with F5 WAF to the basic security level, before releasing to production.\
+That will ensure their applications are protected and safe  to the basic security level, before releasing to production.
 
 # How it Works
 
