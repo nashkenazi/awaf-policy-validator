@@ -26,17 +26,17 @@ The Tool cover testing varoius attack types which include:
 
 The tool will test the protection level by sending various attacks type samples, that validate the application is not vulnerable to these attacks. The tool will provide testing results with possible reasons of the failed attacks that related to F5 WAF.
 
-On top of the generic attack types tests, the tool support testing specific server technologies based on the application components:
+On top of the generic attack types tests, the tool support testing attack types to a spesific server technologies based on the application components:
 
-- Node.js
-- PHP
-- MongoDb
-- Micorsoft
-- Unix/Linux
-- XML
-- Java Servlets/JSP
-- ASP.NET
-- Python
+        "Node.js"
+        "PHP"
+        "MongoDb"
+        "Micorsoft"
+        "Unix/Linux"
+        "XML"
+        "Java Servlets/JSP"
+        "ASP.NET"
+        "Python"
 
 # Installation
 
