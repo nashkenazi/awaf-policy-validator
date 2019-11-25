@@ -51,13 +51,12 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 
 # How to Use
 
-### 1. Create configuration file for the first time:  ```f5-waf-tester --init``` 
+#### 1. Create configuration file for the first time:  ```f5-waf-tester --init``` 
 
 that will contain initial information about the testing environment which should \ include information the application server technologies.
 
-e.g:
 ```
-[BIG-IP] Host [1.1.1.1]: The BIG-IP Mgmt IP address to be tested
+[BIG-IP] Host [1.1.1.1]: ---The BIG-IP Mgmt IP address to be tested
 [BIG-IP] Username [username]: The BIG-IP Mgmt username to be tested
 [BIG-IP] Password [********]: The BIG-IP Mgmt password to be tested
 ASM Policy Name [policy_name]: The ASM policy name to be tested
