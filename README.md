@@ -105,11 +105,28 @@ Test results summary provide total number of passed/failed tests:
   ```
     
   fail - The attack was not block by the WAF\
-  pass - The attack was bloacked by the WAF
+  pass - The attack was bloacked by the WAF \
   
-  For each passed test ID, the tester tool provides the corresponding support ID that was blocked by the WAF - "support_id"
+  The result format: 
   
-  For each failed test ID, the tester tool provdes the common possible reasons why the WAF did not block the request:
+  ```"100000025": {                                     <<< Test ID
+      "CVE": "",
+      "attack_type": "Server Side Code Injection",  
+      "name": "ASP.NET Code Injection",
+      "results": {
+        "header": {                                      
+          "expected_result": {
+            "type": "signature",                        <<< Attack Type
+            "value": "200004516"                        <<< Signture ID in WAF
+          },
+          "pass": false,
+          "reason": "Attack Signature is not in the ASM Policy",
+          "support_id": ""
+```
+  
+  If the test ID passed, the "support_id" field provide the corresponding support ID that was blocked by the WAF
+  If the test ID fail -  the "reason" field descibe the possible reason why the WAF did not block the request 
+  if the test ID vector is signature - the "value" field provide the signature ID that related to this attack in WAF
     
   ```
   ASM Policy is not in blocking mode
