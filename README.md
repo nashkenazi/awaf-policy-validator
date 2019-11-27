@@ -56,7 +56,8 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 that will contain initial information about the testing environment which should \ include information the application server technologies.
 
 
-```[BIG-IP] Host [1.1.1.1]:                     <<< The BIG-IP Mgmt IP address to be tested
+```
+[BIG-IP] Host [1.1.1.1]:                        <<< The BIG-IP Mgmt IP address to be tested
 [BIG-IP] Username [username]:                   <<< The BIG-IP Mgmt username to be tested
 [BIG-IP] Password [********]:                   <<< The BIG-IP Mgmt password to be tested
 ASM Policy Name [policy_name]:                  <<< The WAF policy name to be tested
@@ -71,7 +72,7 @@ Number OF Threads [25]:                 <<< The number of threads to open in par
 [Filters] Test Attack Types to exclude (Separated by ',') [],]:                 <<< You can choose a spesifc attack type names not that will be tested (on top of the include list)
 ```
 
-After the first init, config file (config.json) is created on the same folder and can be manipulated.
+After the first init, config file (config.json) is created on the same project folder and can be manipulated inside the file.
 
 More information can be observed by clicking ```f5-waf-tester --help```
 ```
@@ -108,6 +109,8 @@ e.g:
     
   fail - The attack was not block by the WAF\
   pass - The attack was bloacked by the WAF \
+  
+  On top of the summart results, the tester tool provide infromation for each test.
   
   e.g: 
   
