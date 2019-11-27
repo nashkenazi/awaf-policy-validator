@@ -97,6 +97,8 @@ optional arguments:
 
 Test results summary provide total number of passed/failed tests:
 
+e.g:
+
 ```
  "summary": {
     "fail": 4,
@@ -107,7 +109,7 @@ Test results summary provide total number of passed/failed tests:
   fail - The attack was not block by the WAF\
   pass - The attack was bloacked by the WAF \
   
-  The result format: 
+  e.g: 
   
   ```
      "100000025": {                                     <<< Test ID
@@ -163,7 +165,7 @@ e.g:
         "MongoDb",
         "Java Servlets/JSP"
       ]
-      
+ }
  ```
 
 ### 3. Adapt the WAF policy based on the possilbe reasons results and run the tester tool again
