@@ -51,7 +51,7 @@ Install the tool. ```pip install git+https://github.com/f5devcentral/f5-waf-test
 
 # How to Use
 
-#### 1. Create configuration file for the first time:  ```f5-waf-tester --init``` 
+#### 1. [Intail Setup] Create configuration file for the first time:  ```f5-waf-tester --init``` 
 
 that will contain initial information about the testing environment which should \ include information the application server technologies.
 
@@ -94,7 +94,7 @@ optional arguments:
                         Report File Save Path. (default: report.json)
   ```
 
-### 2. Run the tester tool and observe the results: ```f5-waf-tester```
+### 2. [Deploy] Run the tester tool and observe the results: ```f5-waf-tester```
 
 Test results summary provide total number of passed/failed tests:
 
@@ -171,5 +171,5 @@ e.g:
  }
  ```
 
-### 3. Adapt the WAF policy based on the possilbe reasons results and run the tester tool again
+### 3. [Inspect and Adapt] Refine the WAF policy based on the possilbe reasons results and run the tester tool again
 Once the results are clear from any failed tests, it means that you WAF is ready to be deployed and provide the basic protection level against web attacks.
