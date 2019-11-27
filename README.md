@@ -104,7 +104,7 @@ Test results summary provide total number of passed/failed tests:
   }
   ```
     
-  fail - The attack was not block by the WAF
+  fail - The attack was not block by the WAF\
   pass - The attack was bloacked by the WAF
   
   For each passed test ID, the tester tool provides support ID for any test that was blocked by the WAF - "support_id"
