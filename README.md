@@ -124,10 +124,11 @@ Test results summary provide total number of passed/failed tests:
           "support_id": ""
 ```
   
-  If the test ID passed, the "support_id" field provide the corresponding support ID that was blocked by the WAF
-  If the test ID fail -  the "reason" field descibe the possible reason why the WAF did not block the request 
-  if the test ID vector is signature - the "value" field provide the signature ID that related to this attack in WAF
-    
+  If the test ID passed, the "support_id" field provide the corresponding support ID that was blocked by the WAF \
+  If the test ID fail -  the "reason" field descibe the possible reason why the WAF did not block the request \
+  if the test ID vector is signature - the "value" field provide the signature ID that related to this attack in WAF \
+  
+  Here are the possible reasons that the test ID failed:\
   ```
   ASM Policy is not in blocking mode
   Attack Signature is not in the ASM Policy
