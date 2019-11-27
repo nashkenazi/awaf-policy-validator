@@ -94,7 +94,7 @@ optional arguments:
                         Report File Save Path. (default: report.json)
   ```
 
-### 2. [Deploy] Run the tester tool and observe the results: ```f5-waf-tester```
+#### 2. [Deploy] Run the tester tool and observe the results: ```f5-waf-tester```
 
 Test results summary provide total number of passed/failed tests:
 
@@ -171,5 +171,5 @@ e.g:
  }
  ```
 
-### 3. [Inspect and Adapt] Refine the WAF policy based on the possilbe reasons results and run the tester tool again
+#### 3. [Inspect and Adapt] Refine the WAF policy based on the possilbe reasons results and run the tester tool again
 Once the results are clear from any failed tests, it means that you WAF is ready to be deployed and provide the basic protection level against web attacks.
