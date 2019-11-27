@@ -109,7 +109,8 @@ Test results summary provide total number of passed/failed tests:
   
   The result format: 
   
-  ```"100000025": {                                     <<< Test ID
+  ```
+     "100000025": {                                     <<< Test ID
       "CVE": "",
       "attack_type": "Server Side Code Injection",  
       "name": "ASP.NET Code Injection",
@@ -128,7 +129,7 @@ Test results summary provide total number of passed/failed tests:
   If the test ID fail -  the "reason" field descibe the possible reason why the WAF did not block the request \
   if the test ID vector is signature - the "value" field provide the signature ID that related to this attack in WAF
   
-  Here are the possible reasons that the test ID failed:
+  Here are the possible reasons that could cause the test ID to fail:
   ```
   ASM Policy is not in blocking mode
   Attack Signature is not in the ASM Policy
