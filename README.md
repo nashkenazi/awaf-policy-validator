@@ -72,8 +72,9 @@ Number OF Threads [25]:                 <<< The number of threads to open in par
 [Filters] Test Attack Types to exclude (Separated by ',') [],]:                 <<< You can choose a spesifc attack type names not that will be tested (on top of the include list)
 ```
 
-After the first init, config file (config.json) will be created by default under python folder and can be changed with "-c",  "-t" for the test file and "-r" for the report file.
-The results of the tests will be saved to "report.json" under the current folder. 
+After the first init, config file (config.json) will be created by default under python folder.
+The default can be changed using "-c" with the desired path, as well "-t" for the test file and "-r" for the report file.
+
 
 More information can be observed by clicking ```f5-waf-tester --help```
 ```
@@ -97,6 +98,7 @@ optional arguments:
 
 #### 2. [Deploy] Run the tester tool and observe the results: ```f5-waf-tester```
 
+The results of the tests will be saved to "report.json" under the current folder. 
 Test results summary provide total number of passed/failed tests:
 
 e.g:
