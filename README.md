@@ -31,7 +31,7 @@ On top of the generic attack types tests, the tool support testing attack types 
         "Node.js"
         "PHP"
         "MongoDb"
-        "Micorsoft"
+        "Micorsoft Windows"
         "Unix/Linux"
         "XML"
         "Java Servlets/JSP"
