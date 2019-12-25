@@ -73,6 +73,7 @@ Number OF Threads [25]:                 <<< The number of threads to open in par
 ```
 
 After the first init, config file (config.json) will be created by default under python folder and can be changed with "-c",  "-t" for the test file and "-r" for the report file.
+The results of the tests will be saved to "report.json" under the current folder. 
 
 More information can be observed by clicking ```f5-waf-tester --help```
 ```
